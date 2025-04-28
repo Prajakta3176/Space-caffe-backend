@@ -33,7 +33,9 @@ server.use('/',cartRouter)
 server.use('/',reviewRouter)
 server.use('/',orderRouter)
 
-
+server.get('/', (req, res) => {
+    res.send("Backend server is running fine 🚀");
+});
 
 server.listen(process.env.PORT, ()=>{
     console.log("Server is running");
