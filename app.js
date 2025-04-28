@@ -1,4 +1,4 @@
-import { config } from 'dotenv';
+
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -26,12 +26,12 @@ import adminRouter from './routes/admin.js';
 import cartRouter from './routes/cart.js';
 import reviewRouter from './routes/review.js';
 import orderRouter from './routes/order.js';
-server.use('/',foodRouter)
-server.use('/',userRouter)
-server.use('/',adminRouter)
-server.use('/',cartRouter)
-server.use('/',reviewRouter)
-server.use('/',orderRouter)
+server.use('/api/food',foodRouter)
+server.use('/api/user',userRouter)
+server.use('/api/admin',adminRouter)
+server.use('/api/cart',cartRouter)
+server.use('/api/review',reviewRouter)
+server.use('/api/order',orderRouter)
 
 server.get('/', (req, res) => {
     res.send("Backend server is running fine 🚀");
