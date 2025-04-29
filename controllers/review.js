@@ -8,6 +8,11 @@ export const addOrUpdateReview = async(req,res)=>{
         const id = req.headers['id']
 
         const {rating, comment} = req.body;
+        
+        console.log('foodid:', foodid);
+        console.log('id:', id);
+        console.log('rating:', rating);
+        console.log('comment:', comment);
 
         const food = await Food.findById(foodid);
         if (!food) return res.status(404).json({ message: "Food item not found" });
@@ -64,6 +69,8 @@ export const deleteReview = async(req,res)=>{
 
         const {foodid} = req.params;
         const userId = req.headers['id'];
+
+
 
 
         const food = await Food.findById(foodid);

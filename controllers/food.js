@@ -132,7 +132,7 @@ export const addFoodItems = async (req, res) => {
 export const getFoodByCategory = async (req, res) => {
   try {
     const { category } = req.params;
-    const foodItems = await Food.find({category : category});
+    const foodItems = await Food.find({ category: category });
 
     if (!foodItems) {
       return res
@@ -140,7 +140,7 @@ export const getFoodByCategory = async (req, res) => {
         .json({ success: false, message: "No item found with such category" });
     }
 
-    res.status(200).json( foodItems );
+    res.status(200).json(foodItems);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Internal server error" });
@@ -168,4 +168,3 @@ export const getFoodByName = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
