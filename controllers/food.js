@@ -28,7 +28,8 @@ export const addFoodItem = async (req, res) => {
 
     await food.save();
     res.status(200).json({ success: true, message: "Food added successfully" });
-  } catch {
+  } catch(err) {
+    console.log(err);
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
@@ -36,8 +37,8 @@ export const addFoodItem = async (req, res) => {
 export const deleteFoodItem = async (req, res) => {
   try {
     const { foodid } = req.params;
-    const foodItem = await Food.findByIdAndDelete(id);
-
+    const foodItem = await Food.findByIdAndDelete(foodid);
+    console.log(foodItem);
     if (!foodItem) {
       return res.status(400).json({
         success: false,
@@ -57,7 +58,7 @@ export const updateDetails = async (req, res) => {
   try {
     const { foodid } = req.params;
     const dataToUpdate = req.body;
-    const updatedFood = await Food.findByIdAndUpdate(id, dataToUpdate, {
+    const updatedFood = await Food.findByIdAndUpdate(foodid, dataToUpdate, {
       new: true,
     });
 
