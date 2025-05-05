@@ -18,5 +18,5 @@ const userSchema = new Schema(
   { timestamps: true, minimize: false }
 );
 
-const User = model.User || model("User", userSchema);
+const User =model("User", userSchema);
 export default User;

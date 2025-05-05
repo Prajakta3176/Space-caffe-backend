@@ -20,5 +20,5 @@ const foodSchema = new Schema(
   { timestamps: true }
 );
 
-const Food = model.Food || model("Food", foodSchema);
+const Food = model("Food", foodSchema);
 export default Food;
