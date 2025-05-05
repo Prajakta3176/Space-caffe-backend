@@ -84,7 +84,7 @@ export const updateDetails = async (req, res) => {
 export const getAllFoodItems = async (req, res) => {
   try {
     const allFoodItems = await Food.find().sort({ createdAt: -1 });
-    if (!allFoodItems) {
+    if (allFoodItems === 0) {
       res.status(404).json({ message: "Error fetching food items." });
     }
 
