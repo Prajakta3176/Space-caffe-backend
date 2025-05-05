@@ -84,7 +84,7 @@ export const updateDetails = async (req, res) => {
 export const getAllFoodItems = async (req, res) => {
   try {
     const allFoodItems = await Food.find().sort({ createdAt: -1 });
-    if (allFoodItems === 0) {
+    if (allFoodItems.length === 0) {
       res.status(404).json({ message: "Error fetching food items." });
     }
 
@@ -156,7 +156,7 @@ export const getFoodByName = async (req, res) => {
       name: { $regex: name, $options: "i" }, // partial + case-insensitive match
     });
 
-    if (!foodItems || foodItems.length === 0) {
+    if (foodItems.length === 0) {
       return res.status(404).json({
         success: false,
         message: "No food items found matching the search keyword.",
