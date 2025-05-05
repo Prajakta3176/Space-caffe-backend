@@ -66,7 +66,7 @@ export const removeFoodFromCart = async (req, res) => {
 export const getAllCartItems = async (req, res) => {
   try {
     const id = req.headers["id"];
-    const user = await User.findById(id).populate("cart.food").;
+    const user = await User.findById(id).populate("cart.food");
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
